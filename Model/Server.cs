@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using FlightSimulator.ViewModels;
 namespace FlightSimulator.Model
 {
+    //  class Server
+    // get the data from the simulator 
     class Server : BaseNotify
     {
         private TcpListener listener = null;
@@ -20,10 +22,7 @@ namespace FlightSimulator.Model
         private float lon;
         private bool update = false;
 
-        public Server()
-        {    
-        }
-
+       // proprty that resposible to notify about change
         public float Lat
         {
             get
@@ -37,6 +36,8 @@ namespace FlightSimulator.Model
             }
               
         }
+
+        // proprty that resposible to notify about change
         public float Lon
         {
             get
@@ -50,32 +51,38 @@ namespace FlightSimulator.Model
             }
 
         }
-
+        // open a socket with the ip and port and whit for client
         public void Connect(string IP, int port)
         {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), port);
             listener = new TcpListener(ep);
-            listener.Start();
-            client = listener.AcceptTcpClient();
-            Thread thread = new Thread(this.ReadFromClient);
+            listener.Start(); // the server socket
+            client = listener.AcceptTcpClient(); // whit for client
+            Thread thread = new Thread(this.ReadFromClient); 
+            // open new thread For communication with the customer
             thread.Start();
         }
-
+        // whit for msg from the client
         public void ReadFromClient()
         {
             using (NetworkStream stream = client.GetStream())           
             {
+                // whit until change the sholdStop memmber
                 while (!sholdStop)
                 {
                     Byte[] values = new Byte[client.ReceiveBufferSize];
-                    int x = stream.Read(values, 0, values.Length);
+                    int x = stream.Read(values, 0, values.Length); // get the data
                     string[] data = Encoding.ASCII.GetString(values, 0, x).Split(',');
                     if (float.Parse(data[21], CultureInfo.InvariantCulture.NumberFormat) > 0 && !update)
+                        // if it is the first time that the plane start to move 
+                        // the trutel value is in place 21
                     {
+                        // Initializing the initial position
                         lat = float.Parse(data[0], CultureInfo.InvariantCulture.NumberFormat);
                         lon = float.Parse(data[1], CultureInfo.InvariantCulture.NumberFormat);
                         update = true;
                     }
+                    // update all and notify 
                     if (update)
                     {
                         Lat = float.Parse(data[0], CultureInfo.InvariantCulture.NumberFormat);
@@ -84,10 +91,10 @@ namespace FlightSimulator.Model
                 }
             }
         }
-
+        // close the client and than the server if they open
         public void CloseServer()
         {
-            this.sholdStop = true;
+            this.sholdStop = true; // Stops receiving messages
             Thread.Sleep(1000);
             if (client != null)
             {

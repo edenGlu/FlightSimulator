@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using FlightSimulator.ViewModels;
 namespace FlightSimulator.Model
 {
+    /*
+     * class ManualModel
+     * responsible on the logic of manual 
+     */
     class ManualModel : BaseNotify
     {
         private double rudder;
@@ -21,9 +25,10 @@ namespace FlightSimulator.Model
 
         public ManualModel()
         {
+            // get the instans of the client that can send msg to the simulator
             sender = Singleton.Instance;
         }
-
+        // property
         public double Elevator
         {
             get
@@ -38,7 +43,7 @@ namespace FlightSimulator.Model
                 SendElevator(value);
             }
         }
-
+        // property to show the elevator value
         public string ElevatorVal
         {
             get
@@ -51,6 +56,7 @@ namespace FlightSimulator.Model
                 NotifyPropertyChanged("ElevatorVal");
             }
         }
+        // property
         public double Aileron
         {
             get
@@ -65,7 +71,7 @@ namespace FlightSimulator.Model
                 SendAileron(value);
             }
         }
-
+        // property
         public string AileronVal
         {
             get
@@ -78,7 +84,7 @@ namespace FlightSimulator.Model
                 NotifyPropertyChanged("AileronVal");
             }
         }
-
+        // property
         public double Rudder
         {
             get
@@ -93,7 +99,7 @@ namespace FlightSimulator.Model
                 SendRudder(value);
             }
         }
-
+        // property
         public string RudderVal
         {
             get
@@ -106,13 +112,13 @@ namespace FlightSimulator.Model
                 NotifyPropertyChanged("RudderVal");
             }
         }
-
+        // send to the relavant path
         void SendRudder(double val)
         {
             string msg = "set controls/flight/rudder " + Math.Round(val, 2).ToString() + "\r\n";
             sender.Send(msg);
         }
-
+        // property
         public double Throttle
         {
             get
@@ -127,7 +133,7 @@ namespace FlightSimulator.Model
                 SendThrottle(value);
             }
         }
-
+        // property
         public string ThrottleVal
         {
             get
@@ -141,18 +147,21 @@ namespace FlightSimulator.Model
             }
         }
 
+        // send to the relavant path
         void SendThrottle(double val)
         {
             string msg = "set controls/engines/current-engine/throttle " + Math.Round(val, 2).ToString() + "\r\n";
             sender.Send(msg);
         }
 
+        // send to the relavant path
         void SendAileron(double val)
         {
             string msg = "set controls/flight/aileron " + Math.Round(val, 2).ToString() + "\r\n";
             sender.Send(msg);
         }
 
+        // send to the relavant path
         void SendElevator(double val)
         {
             string msg = "set controls/flight/elevator " + Math.Round(val, 2).ToString() + "\r\n";

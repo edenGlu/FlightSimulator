@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model.Interface
 {
+    /*
+     * class IServer :
+     * responseble to create one server in the pograme. 
+     */
     class IServer
     {
+        // the only one that create a new server
         private static readonly Server instance = new Server();
 
         static IServer()

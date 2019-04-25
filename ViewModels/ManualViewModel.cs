@@ -16,13 +16,13 @@ namespace FlightSimulator.ViewModels
 
         public ManualViewModel()
         {
-            model = new ManualModel();
+            model = new ManualModel(); // create the model
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged("VM_" + e.PropertyName);
             };
         }
-
+        // proprty
         public double VM_Rudder {
             get
             {
@@ -33,7 +33,7 @@ namespace FlightSimulator.ViewModels
                 model.Rudder = value;
             }
         }
-
+        // proprty
         public string VM_RudderVal
         {
             get
@@ -45,7 +45,7 @@ namespace FlightSimulator.ViewModels
                 NotifyPropertyChanged("VM_RudderVal");
             }
         }
-
+        // proprty
         public double VM_Throttle
         {
             get
@@ -57,7 +57,7 @@ namespace FlightSimulator.ViewModels
                 model.Throttle = value;
             }
         }
-
+        // proprty
         public string VM_ThrottleVal
         {
             get
@@ -69,7 +69,7 @@ namespace FlightSimulator.ViewModels
                 NotifyPropertyChanged("VM_ThrottleVal");
             }
         }
-
+        // proprty
         public double VM_Elevator
         {
             get
@@ -81,7 +81,7 @@ namespace FlightSimulator.ViewModels
                 model.Elevator = value;
             }
         }
-
+        // proprty
         public string VM_ElevatorVal
         {
             get
@@ -93,7 +93,7 @@ namespace FlightSimulator.ViewModels
                 NotifyPropertyChanged("VM_ElevatorVal");
             }
         }
-
+        // proprty
         public double VM_Aileron
         {
             get
@@ -105,7 +105,7 @@ namespace FlightSimulator.ViewModels
                 model.Aileron = value;
             }
         }
-
+        // proprty
         public string VM_AileronVal
         {
             get

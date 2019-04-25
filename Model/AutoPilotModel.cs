@@ -9,18 +9,23 @@ using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Model
 {
+    /*
+     * class AutoPilotModel : 
+     * the model to send massage to the simulator
+     */
     class AutoPilotModel : BaseNotify
     {
-        private Brush textBack;
+        private Brush textBack; 
         private Sender sender;
-
+        // constractor
         public AutoPilotModel()
         {
+            // get the instans of the client that can send msg to the simulator
             sender = Singleton.Instance;
         }
-
+        // proprty 
         public string Text { get; set; }
-
+        // proprty
         public Brush TextBack
         {
             get
@@ -33,7 +38,7 @@ namespace FlightSimulator.Model
                 NotifyPropertyChanged("TextBack");
             }
         }
-        
+        // the ok buttom logic 
         public void Ok()
         {
             TextBack = Brushes.IndianRed;
@@ -50,7 +55,7 @@ namespace FlightSimulator.Model
                     msg += "\r\n";
                 }
                 sender.Send(msg);
-                Thread.Sleep(2000);
+                Thread.Sleep(2000); // wait 2 sec beetwin msgs 
             }
             TextBack = Brushes.White;
         }

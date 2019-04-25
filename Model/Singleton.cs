@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
 {
+    // class Singleton - create only one object of Sender  
     class Singleton
     {
         private static readonly Sender instance = new Sender();

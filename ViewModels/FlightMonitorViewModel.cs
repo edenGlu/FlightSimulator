@@ -19,7 +19,7 @@ namespace FlightSimulator.ViewModels
         private ICommand _settingCommand;
         private ICommand _connectCommand;
         private Settings settings;
-
+        
         public FlightMonitorViewModel()
         {
             settings = new Settings();
@@ -35,6 +35,7 @@ namespace FlightSimulator.ViewModels
 
         public void ClickSetting()
         {
+            // open the setting window
             settings = new Settings();
             settings.Show(); 
         }
@@ -46,7 +47,7 @@ namespace FlightSimulator.ViewModels
                 return _connectCommand ?? (_connectCommand = new CommandHandler(() => ClickConnect()));
             }
         }
-
+        // connect to the server and client
         private void ClickConnect()
         {
             ISettingsModel model = ApplicationSettingsModel.Instance;

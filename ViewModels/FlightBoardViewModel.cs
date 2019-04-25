@@ -9,19 +9,21 @@ using System.ComponentModel;
 
 namespace FlightSimulator.ViewModels
 {
+    // class FlightBoardViewModel
     public class FlightBoardViewModel : BaseNotify
     {
         private Server server;
-
+        // constractor
         public FlightBoardViewModel()
         {
+            // get instans of the server
             server = IServer.Instance;
             server.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged(e.PropertyName);
             };
         }
-
+        // proprty Lon
         public double Lon
         {
             get
@@ -33,7 +35,7 @@ namespace FlightSimulator.ViewModels
                 NotifyPropertyChanged("Lon");
             }
         }
-
+        // proprty Lan
         public double Lat
         {
             get
