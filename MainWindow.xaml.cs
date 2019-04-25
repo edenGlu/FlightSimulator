@@ -35,7 +35,7 @@ namespace FlightSimulator
             Sender client = Singleton.Instance;
             server.CloseServer();
             client.CLoseClient();
-            return;
+            
         }
     }
 }

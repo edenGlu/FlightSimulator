@@ -72,6 +72,8 @@ namespace FlightSimulator.Model
                     string[] data = Encoding.ASCII.GetString(values, 0, x).Split(',');
                     if (float.Parse(data[21], CultureInfo.InvariantCulture.NumberFormat) > 0)
                     {
+                        lat = float.Parse(data[0], CultureInfo.InvariantCulture.NumberFormat);
+                        lon = float.Parse(data[1], CultureInfo.InvariantCulture.NumberFormat);
                         update = true;
                     }
                     if (update)
