@@ -70,7 +70,7 @@ namespace FlightSimulator.Model
                     Byte[] values = new Byte[client.ReceiveBufferSize];
                     int x = stream.Read(values, 0, values.Length);
                     string[] data = Encoding.ASCII.GetString(values, 0, x).Split(',');
-                    if (float.Parse(data[21], CultureInfo.InvariantCulture.NumberFormat) > 0)
+                    if (float.Parse(data[21], CultureInfo.InvariantCulture.NumberFormat) > 0 && !update)
                     {
                         lat = float.Parse(data[0], CultureInfo.InvariantCulture.NumberFormat);
                         lon = float.Parse(data[1], CultureInfo.InvariantCulture.NumberFormat);
