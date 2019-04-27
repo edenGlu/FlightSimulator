@@ -165,6 +165,7 @@ namespace FlightSimulator.Model
         void SendElevator(double val)
         {
             string msg = "set controls/flight/elevator " + Math.Round(val, 2).ToString() + "\r\n";
+            sender.Send(msg);
         }
 
     }

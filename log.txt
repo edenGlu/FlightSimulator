@@ -1,0 +1,29 @@
+commit ce55b2bf61c39a5fb4b1a2e95db74902ae6c25cd
+Author: edenGlu <45977312+edenGlu@users.noreply.github.com>
+Date:   Thu Apr 25 19:08:59 2019 +0300
+
+    add remarks
+
+commit 08957aab1bb3938e764bdce69aa0e94e0c6d7915
+Author: edenGlu <45977312+edenGlu@users.noreply.github.com>
+Date:   Thu Apr 25 15:47:05 2019 +0300
+
+    server change
+
+commit f4b99e84a0e89ff56c564e1500a74e792ab5b191
+Author: edenGlu <45977312+edenGlu@users.noreply.github.com>
+Date:   Thu Apr 25 11:40:02 2019 +0300
+
+    change server
+
+commit f8ff4fb1f726d88d5223c0281afa66aaf02274f9
+Author: edenGlu <45977312+edenGlu@users.noreply.github.com>
+Date:   Wed Apr 24 11:53:54 2019 +0300
+
+    Add project files.
+
+commit f2156b6a316529f537aaf5f4292d77a5b89d4adf
+Author: edenGlu <45977312+edenGlu@users.noreply.github.com>
+Date:   Wed Apr 24 11:53:52 2019 +0300
+
+    Add .gitignore and .gitattributes.
